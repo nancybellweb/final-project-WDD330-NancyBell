@@ -16,16 +16,25 @@ export default class ExternalServices {
         }
     }
 
-    // 1. ZenQuotes API Fetcher (No API Key required for basic usage)
-    async getRandomQuote() {
-        // Using a CORS proxy if running into localhost browser blocking restrictions
-        const url = `https://corsproxy.io/?https://zenquotes.io/api/random`;
-        const response = await fetch(url);
-        const data = await this.convertToJson(response);
-        return data[0]; // ZenQuotes returns an array containing the quote object
+    // 1. ZenQuotes API Fetcher with CORS Proxy
+async getRandomQuote() {
+    const url = "https://zenquotes.io/api/random";
+    
+    const proxyUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(url)}`;
+    
+    const response = await fetch(proxyUrl);
+    const data = await response.json();
+    
+    // AllOrigins wraps the original response inside a "contents" stringified JSON object
+    if (data && data.contents) {
+        const parsedContents = JSON.parse(data.contents);
+        return parsedContents[0]; 
+        }
+        
+        return data[0];
     }
 
-    // 2. Vanilla Firebase Firestore GET (Retrieve Goals/Agenda)
+    // 2. Vanilla Firebase Firestore GET - Goals Agenda
     async getDocuments(collectionName) {
         const response = await fetch(`${this.firestoreBaseUrl}/${collectionName}`);
         return await this.convertToJson(response);
@@ -39,7 +48,7 @@ export default class ExternalServices {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            fields: data // Firestore REST API expects a "fields" map descriptor object
+            fields: data 
         })
         };
         const response = await fetch(`${this.firestoreBaseUrl}/${collectionName}`, options);
