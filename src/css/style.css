@@ -38,6 +38,7 @@ body {
   position: sticky;
   top: 0;
   z-index: 1000;
+  width: 100%;
 }
 
 .header-container {
@@ -114,14 +115,24 @@ body {
   box-sizing: border-box;
 }
 
-/* Hide desktop specific side-columns on mobile view */
+
 .left-column, .right-column {
   display: none;
 }
 
-/* Center column takes full focus on mobile */
 .center-column {
   display: block;
+}
+
+.timer-display-wrapper {
+  font-size: 3rem; 
+  font-weight: 700; 
+  margin: 1rem 0;
+}
+
+/*User name Highlight */
+.right-column .content-card p:first-of-type strong {
+  color: var(--primary-accent);
 }
 
 /*desktop view*/
