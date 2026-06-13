@@ -20,17 +20,19 @@ export function qs(selector, parent = document) {
     return await response.text();
     }
 
-    export async function loadHeaderFooter() {
+export async function loadHeaderFooter() {
     try {
-        const headerTemplate = await loadTemplate('/src/partials/header.html');
-        const footerTemplate = await loadTemplate('/src/partials/footer.html');
+        // If your partials folder is directly inside /src/
+        const headerTemplate = await loadTemplate('/partials/header.html');
+        const footerTemplate = await loadTemplate('/partials/footer.html');
 
+        // Double-check selector targets match index.html exactly
         const headerElement = document.querySelector('#main-header');
         const footerElement = document.querySelector('#main-footer');
 
         if (headerElement) headerElement.innerHTML = headerTemplate;
         if (footerElement) footerElement.innerHTML = footerTemplate;
     } catch (error) {
-        console.error('Layout dynamic rendering error:', error);
+        console.error('Layout rendering error:', error);
     }
 }

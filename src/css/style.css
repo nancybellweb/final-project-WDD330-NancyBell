@@ -56,6 +56,12 @@ body {
   color: var(--primary-accent);
   text-decoration: none;
 }
+.logo-image {
+  width: 200px;
+  height: 100px;
+  margin-right: 0.5rem;
+  border-radius: 50%;
+}
 
 /* Desktop navigation hidden by default on mobile */
 .nav-desktop {
@@ -134,7 +140,43 @@ body {
 .right-column .content-card p:first-of-type strong {
   color: var(--primary-accent);
 }
+/* Footer */
+#main-footer {
+  background-color: var(--surface-white); /* White background to match header */
+  border-top: 1px solid rgba(68, 64, 60, 0.1); /* Subtle separating line */
+  color: var(--text-main); /* Warm Charcoal */
+  padding: 1.5rem 1rem;
+  margin-top: auto; /* Crucial! Automatically pushes the footer to the very bottom */
+  width: 100%;
+  box-sizing: border-box;
+}
 
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+}
+
+/* Optional: Subtle design for copyright vs links in the footer */
+.footer-container p {
+  margin: 0;
+  font-weight: 400;
+}
+
+.footer-container a {
+  color: var(--primary-accent); /* Warm Amber */
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.footer-container a:hover {
+  text-decoration: underline;
+}
 /*desktop view*/
 @media (min-width: 768px) {
   /* Toggle Navigation Bars */
