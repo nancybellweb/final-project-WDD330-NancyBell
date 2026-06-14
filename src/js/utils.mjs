@@ -33,6 +33,6 @@ export async function loadHeaderFooter() {
         if (headerElement) headerElement.innerHTML = headerTemplate;
         if (footerElement) footerElement.innerHTML = footerTemplate;
     } catch (error) {
-        console.error('Layout rendering error:', error);
+        //console.error('Layout rendering error:', error); 
     }
 }
