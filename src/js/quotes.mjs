@@ -27,8 +27,7 @@ export async function initDailyQuote(selector) {
         const rawQuote = await services.getRandomQuote();
         targetElement.innerHTML = quoteTemplate(rawQuote);
     } catch (error) {
-        console.warn('API blocked or down. Activating local layout fallback entry:', error);
-        // This was crashing because of the typo. Now it will work seamlessly!
+        //console.warn('API blocked or down. Activating local layout fallback entry:', error);
         targetElement.innerHTML = quoteTemplate({});
     }
 }
