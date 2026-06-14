@@ -11,7 +11,6 @@ export function qs(selector, parent = document) {
     localStorage.setItem(key, JSON.stringify(data));
     }
 
-    // Your async template loaders...
     async function loadTemplate(path) {
     const response = await fetch(path);
     if (!response.ok) {
@@ -22,11 +21,9 @@ export function qs(selector, parent = document) {
 
 export async function loadHeaderFooter() {
     try {
-        // If your partials folder is directly inside /src/
         const headerTemplate = await loadTemplate('/partials/header.html');
         const footerTemplate = await loadTemplate('/partials/footer.html');
 
-        // Double-check selector targets match index.html exactly
         const headerElement = document.querySelector('#main-header');
         const footerElement = document.querySelector('#main-footer');
 

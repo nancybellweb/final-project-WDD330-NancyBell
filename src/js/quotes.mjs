@@ -1,4 +1,3 @@
-// /src/js/quotes.mjs
 import ExternalServices from './ExternalServices.mjs';
 import { qs } from './utils.mjs';
 
