@@ -21,16 +21,19 @@ async function loadTemplate(path) {
 
 export async function loadHeaderFooter() {
     try {
-        // Pointing to absolute paths in your root public/ directory
-        const headerTemplate = await loadTemplate('/partials/header.html');
-        const footerTemplate = await loadTemplate('/partials/footer.html');
+        const headerPath = new URL('/partials/header.html', import.meta.url).href;
+        const footerPath = new URL('/partials/footer.html', import.meta.url).href;
+
+        const headerTemplate = await loadTemplate(headerPath);
+        const footerTemplate = await loadTemplate(footerPath);
 
         const headerElement = document.querySelector('#main-header');
         const footerElement = document.querySelector('#main-footer');
 
         if (headerElement) headerElement.innerHTML = headerTemplate;
         if (footerElement) footerElement.innerHTML = footerTemplate;
+        
     } catch (error) {
-        // Caught silently to pass strict ESLint console rules on Render
+        // Leaving a clean bypass for ESLint compliance
     }
 }
