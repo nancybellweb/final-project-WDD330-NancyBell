@@ -1,4 +1,16 @@
 
+export function qs(selector, parent = document) {
+    return parent.querySelector(selector);
+}
+
+export function getLocalStorage(key) {
+    return JSON.parse(localStorage.getItem(key));
+}
+
+export function setLocalStorage(key, data) {
+    localStorage.setItem(key, JSON.stringify(data));
+}
+
 async function loadTemplate(path) {
     const response = await fetch(path);
     if (!response.ok) {
@@ -9,8 +21,7 @@ async function loadTemplate(path) {
 
 export async function loadHeaderFooter() {
     try {
-        // 🌟 Use a single leading slash (/) to point to the absolute root.
-        // This resolves to public/partials/ locally and dist/partials/ on Render!
+        // Pointing to absolute paths in your root public/ directory
         const headerTemplate = await loadTemplate('/partials/header.html');
         const footerTemplate = await loadTemplate('/partials/footer.html');
 
