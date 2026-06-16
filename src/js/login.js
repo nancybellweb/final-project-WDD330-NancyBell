@@ -1,4 +1,4 @@
-//LOGIN / REGISTER index page
+
 
 import { loadHeaderFooter } from './utils.mjs';
 import { loginUser, registerUser } from './auth.mjs';
