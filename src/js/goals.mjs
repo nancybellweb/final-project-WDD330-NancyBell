@@ -1,5 +1,6 @@
 // writing to Firestore database, so we can have real user accounts and persistent data storage for goals and progress tracking.
 
+// src/js/goals.mjs
 import { 
     getFirestore, 
     collection, 
@@ -7,111 +8,71 @@ import {
     getDocs, 
     query, 
     where, 
-    orderBy 
-    
-/* eslint-disable import/no-unresolved */
+    orderBy,
+    doc,
+    getDoc,
+    updateDoc,
+    deleteDoc
 } from 'https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js';
 
 const db = getFirestore();
 const goalsCollectionRef = collection(db, 'goals');
 
-
-//PUBLIC / SHARED GOALS LOGIC
-
-/**
- * Save a shared goal that both partners can see
- */
-export async function savePublicGoal(userId, title, category, targetDate) {
-    const goalData = {
-        userId: userId,
-        title: title,
-        category: category,
-        privacy: 'public', // Hardcoded for safety
-        targetDate: targetDate,
-        isCompleted: false,
-        createdAt: new Date().toISOString()
-    };
-
+// (MODULAR SYNTAX)
+export async function updateGoalCompletionStatus(goalId, isCompleted) {
     try {
-        const docRef = await addDoc(goalsCollectionRef, goalData);
-        return docRef.id;
+        const goalDocRef = doc(db, 'goals', goalId);
+        await updateDoc(goalDocRef, { isCompleted: isCompleted });
     } catch (error) {
         /* eslint-disable-next-line no-console */
-        console.error('Error saving public goal:', error);
+        console.error('Error updating goal completion status:', error);
         throw error;
     }
 }
 
-/**
- * Fetch all shared goals for the relationship
- */
-export async function getPublicGoals(userId) {
+export async function deleteGoal(goalId) {
     try {
-        const q = query(
-            goalsCollectionRef,
-            where('privacy', '==', 'public'),
-            orderBy('createdAt', 'desc')
-        );
-
-        const querySnapshot = await getDocs(q);
-        const goals = [];
-        querySnapshot.forEach((doc) => {
-            goals.push({ id: doc.id, ...doc.data() });
-        });
-        return goals;
+        const goalDocRef = doc(db, 'goals', goalId);
+        await deleteDoc(goalDocRef);
     } catch (error) {
         /* eslint-disable-next-line no-console */
-        console.error('Error fetching public goals:', error);
-        return [];
-    }
-}
-
-// PRIVATE / PERSONAL GOALS LOGIC
-/**
- * Save a personal goal exclusive to the logged-in user
- */
-export async function savePrivateGoal(userId, title, category, targetDate) {
-    const goalData = {
-        userId: userId,
-        title: title,
-        category: category,
-        privacy: 'private', // Hardcoded for safety
-        targetDate: targetDate,
-        isCompleted: false,
-        createdAt: new Date().toISOString()
-    };
-
-    try {
-        const docRef = await addDoc(goalsCollectionRef, goalData);
-        return docRef.id;
-    } catch (error) {
-        /* eslint-disable-next-line no-console */
-        console.error('Error saving private goal:', error);
+        console.error('Error deleting goal:', error);
         throw error;
     }
 }
 
-/**
- * Fetch personal goals only belonging to the current user
- */
-export async function getPrivateGoals(userId) {
+export async function editGoal(goalId, updatedData) {
     try {
-        const q = query(
-            goalsCollectionRef,
-            where('userId', '==', userId),
-            where('privacy', '==', 'private'),
-            orderBy('createdAt', 'desc')
-        );
-
-        const querySnapshot = await getDocs(q);
-        const goals = [];
-        querySnapshot.forEach((doc) => {
-            goals.push({ id: doc.id, ...doc.data() });
-        });
-        return goals;
+        const goalDocRef = doc(db, 'goals', goalId);
+        await updateDoc(goalDocRef, updatedData);
     } catch (error) {
         /* eslint-disable-next-line no-console */
-        console.error('Error fetching private goals:', error);
-        return [];
+        console.error('Error editing goal:', error);
+        throw error;
     }
 }
+
+export async function getGoalById(goalId) {
+    try {
+        const goalDocRef = doc(db, 'goals', goalId);  
+        const goalDoc = await getDoc(goalDocRef);  
+        if (goalDoc.exists()) { 
+            return { id: goalDoc.id, ...goalDoc.data() };    
+        } else {
+            return null;                        
+        }
+    } catch (error) {
+        /* eslint-disable-next-line no-console */
+        console.error('Error fetching goal by ID:', error);
+        throw error;
+    }
+}
+
+// Query Functions
+
+export async function getAllGoalsForUser(userId) { ... }
+export async function getAllGoals() { ... }
+export async function getGoalsByCategory(userId, category) { ... }
+export async function getGoalsByCompletionStatus(userId, isCompleted) { ... }
+export async function getGoalsByTargetDate(userId, targetDate) { ... }
+export async function getGoalsByPrivacy(userId, privacy) { ... }
