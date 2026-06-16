@@ -222,3 +222,166 @@ body {
   color: var(--secondary-accent);
   font-weight: 700;
 }
+
+/* ==========================================================
+   ✨ LANDING PAGE LAYOUT SYSTEM
+   ========================================================== */
+
+/* --- Layout Container & Course Banner --- */
+.course-banner {
+  background-color: rgba(217, 119, 6, 0.15); /* Tinted warm background */
+  color: var(--text-main);
+  text-align: center;
+  padding: 0.5rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.05rem;
+  border-bottom: 1px solid rgba(68, 64, 60, 0.05);
+}
+
+.landing-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* --- Hero Section: Split Grid Layout --- */
+.hero-split-grid {
+  display: grid;
+  grid-template-columns: 1fr; /* Stack on mobile viewports */
+  gap: 2rem;
+  align-items: center;
+  background-color: var(--primary-accent); /* Terracotta */
+  color: var(--surface-white);
+  padding: 2.5rem 1.5rem;
+  border-radius: 16px;
+  margin-bottom: 3.5rem;
+  box-shadow: 0 10px 25px rgba(217, 119, 6, 0.15);
+}
+
+.hero-image-column {
+  width: 100%;
+}
+
+.hero-img {
+  width: 100%;
+  max-height: 380px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  display: block;
+}
+
+.hero-text-column h1 {
+  font-size: 2.4rem;
+  margin: 0 0 1rem 0;
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+.hero-text-column p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  opacity: 0.95;
+}
+
+/* --- Start Now Primary Styling Button --- */
+.start-now-btn {
+  display: inline-block;
+  background-color: var(--surface-white);
+  color: var(--primary-accent) !important;
+  font-weight: 700;
+  padding: 0.9rem 2rem;
+  border-radius: 8px;
+  text-decoration: none;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.start-now-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+}
+
+/* --- Features Row Grid Layout Panels --- */
+.features-row-grid {
+  display: grid;
+  grid-template-columns: 1fr; /* 1 Column Mobile */
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.feature-card {
+  background-color: var(--surface-white);
+  border: 3px solid var(--primary-accent);
+  border-radius: 16px;
+  padding: 2.5rem 1.5rem;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(68, 64, 60, 0.05);
+}
+
+/* Set standard boundary heights for your placeholder photos */
+.feature-card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  border: 1px solid rgba(68, 64, 60, 0.1);
+}
+
+.feature-card h2 {
+  color: var(--text-main);
+  font-size: 1.4rem;
+  margin: 0 0 0.75rem 0;
+  font-weight: 700;
+}
+
+.feature-card p {
+  color: var(--text-main);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin: 0;
+  opacity: 0.9;
+}
+
+/* --- Clean Profile/Logout Header Icon Styling --- */
+#login-auth {
+  font-size: 1.4rem;
+  text-decoration: none;
+  color: var(--text-main);
+  padding: 0.2rem 0.5rem;
+  transition: color 0.2s ease;
+}
+
+#login-auth:hover {
+  color: var(--primary-accent);
+}
+
+/* ==========================================================
+   💻 RESPONSIVE DESKTOP ADJUSTMENTS (min-width: 768px)
+   ========================================================== */
+@media (min-width: 768px) {
+  /* 🌟 Force Hero Image column to sit cleanly on the left side */
+  .hero-split-grid {
+    grid-template-columns: 1.16fr 0.84fr;
+    padding: 3rem;
+  }
+  
+  .hero-image-column {
+    order: 1; /* First visually */
+  }
+  
+  .hero-text-column {
+    order: 2; /* Second visually */
+    padding-left: 1rem;
+  }
+
+  /* 🌟 Expand features horizontally into 3 columns */
+  .features-row-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

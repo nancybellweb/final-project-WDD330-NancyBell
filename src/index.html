@@ -5,33 +5,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nook - Spaces for Couples</title>
+    <title>Nook</title>
     <link rel="stylesheet" href="/css/style.css">
     <script type="module" src="/js/landing.js"></script>
 </head>
 <body>
     <header id="main-header"></header>
 
-    <main class="landing-wrapper">
-        <section class="hero-section text-center">
-            <h1>The Space for Your Relationship</h1>
-            <p>Track shared goals, build meaningful conversation habits, and organize your marriage routines in one private digital nook.</p>
-            <a href="/login/index.html" class="btn-primary start-now-btn">Start Now — It's Free</a>
+    <div class="course-banner text-center">
+        Final Project - WDD 330
+    </div>
+
+    <main class="landing-container">
+        <section class="hero-split-grid">
+            <div class="hero-image-column">
+                <img src="/images/couple1.webp" alt="Happy couple smiling together enjoying spending time together" class="hero-img">
+            </div>
+            
+            <div class="hero-text-column">
+                <h1>The Space for Your Relationship.</h1>
+                <p>Track shared goals, build meaningful conversation habits, and organize your marriage routines in one private digital nook.</p>
+                <a href="/login/index.html" class="btn-primary start-now-btn">Start Now</a>
+            </div>
         </section>
 
-        <section class="features-grid">
-            <div class="content-card text-center">
-                <h3>🎯 Smart Goals</h3>
+        <section class="features-row-grid">
+            <article class="feature-card">
+                <div class="card-icon-wrapper">
+                    <img src="/images/goals1.webp" alt="Goals Image/ Calendar image with a coffee cup" class="card-vector-icon">
+                </div>
+                <h2>Smart Goals</h2>
                 <p>Keep separate shared relationship vision boards and private personal goals side-by-side securely.</p>
-            </div>
-            <div class="content-card text-center">
-                <h3>⏱️ Session Timers</h3>
+            </article>
+
+            <article class="feature-card">
+                <div class="card-icon-wrapper">
+                    <img src="/images/timer.webp" alt="Timer Image - Alarm Clock Image" class="card-vector-icon">
+                </div>
+                <h2>Session Timers</h2>
                 <p>Keep your weekly family coordination meetings, syncs, and budget alignments focused and productive.</p>
-            </div>
-            <div class="content-card text-center">
-                <h3>✍️ Coupled Journaling</h3>
+            </article>
+
+            <article class="feature-card">
+                <div class="card-icon-wrapper">
+                    <img src="/images/journal.webp" alt="Journal Image- Notebook Image with a warm background" class="card-vector-icon">
+                </div>
+                <h2>Coupled Journaling</h2>
                 <p>Reflect together on prompts designed to strengthen alignment, emotional appreciation, and memory tracking.</p>
-            </div>
+            </article>
         </section>
     </main>
 
