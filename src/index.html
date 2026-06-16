@@ -1,68 +1,40 @@
-<!--HOME PAGE -->
+<!--MARKETING HOME PAGE -->
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset='UTF-8'>
-  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-  <title>Nook</title>
-  <link rel='icon' type='image/x-icon' href='/images/logos/nook-logo.jpg'>
-  <link rel='stylesheet' href='/css/style.css'>
-  <script type='module' src='/js/main.js'></script>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nook - Spaces for Couples</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <script type="module" src="/js/landing.js"></script>
 </head>
 <body>
+    <header id="main-header"></header>
 
-  <header id='main-header'></header>
+    <main class="landing-wrapper">
+        <section class="hero-section text-center">
+            <h1>The Space for Your Relationship</h1>
+            <p>Track shared goals, build meaningful conversation habits, and organize your marriage routines in one private digital nook.</p>
+            <a href="/login/index.html" class="btn-primary start-now-btn">Start Now — It's Free</a>
+        </section>
 
-  <main class='dashboard-grid'>
-    
-    <aside class='left-column'>
-      <div class='content-card'>
-        <h3>My Journal</h3>
-        <p>Prompting your daily entry setup context...</p>
-      </div>
-      <div class='content-card'>
-        <h3>Quick Notes</h3>
-        <p>Appreciation notes display box...</p>
-      </div>
-    </aside>
+        <section class="features-grid">
+            <div class="content-card text-center">
+                <h3>🎯 Smart Goals</h3>
+                <p>Keep separate shared relationship vision boards and private personal goals side-by-side securely.</p>
+            </div>
+            <div class="content-card text-center">
+                <h3>⏱️ Session Timers</h3>
+                <p>Keep your weekly family coordination meetings, syncs, and budget alignments focused and productive.</p>
+            </div>
+            <div class="content-card text-center">
+                <h3>✍️ Coupled Journaling</h3>
+                <p>Reflect together on prompts designed to strengthen alignment, emotional appreciation, and memory tracking.</p>
+            </div>
+        </section>
+    </main>
 
-    <section class='center-column'>
-      <div id='daily-quote-container'></div>
-
-      <section class='timer-card content-card'>
-        <h2>Session Discussion Timer</h2>
-        <div class='timer-display-wrapper'>
-          <span id='timer-countdown'>10:00</span>
-        </div>
-        <div class='timer-controls'>
-          <button id='start-timer-btn' class='btn-primary'>Set & Start Timer</button>
-          <button id='reset-timer-btn' class='btn-secondary'>Reset</button>
-        </div>
-      </section>
-
-      <div class='content-card'>
-        <h3>This Week's Agenda</h3>
-        <p>No active discussion topics created yet.</p>
-      </div>
-    </section>
-
-    <aside class='right-column'>
-      <div class='content-card'>
-        <h3>Couple Profile</h3>
-        <p>Current Lead: <strong>Chris</strong></p>
-        <p>Current Log Streak: <strong>5 Days</strong></p>
-      </div>
-      <div class='content-card'>
-        <h3>Priority Goals</h3>
-        <p>Individual and group tracking cards mount here...</p>
-      </div>
-    </aside>
-
-  </main>
-
-  <footer id='main-footer'></footer>
-
+    <footer id="main-footer"></footer>
 </body>
 </html>

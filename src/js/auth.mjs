@@ -55,3 +55,13 @@ export async function logoutUser() {
 export function checkAuthState(callback) {
     onAuthStateChanged(auth, callback);
 }
+
+export function requireAuth() {
+    onAuthStateChanged(auth, (user) => {
+        if (!user) {
+            window.location.href = '/login/index.html';
+        }
+    });
+}   
+
+export default { registerUser, loginUser, logoutUser, checkAuthState, requireAuth };

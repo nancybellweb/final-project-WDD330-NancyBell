@@ -1,5 +1,9 @@
 import { loadHeaderFooter } from './utils.mjs';
 import { savePublicGoal, savePrivateGoal } from './goals.mjs';
+import { requireAuth } from './auth.mjs';
+
+// Trigger the route lock right away!
+requireAuth();
 
 // Initialize 
 loadHeaderFooter();

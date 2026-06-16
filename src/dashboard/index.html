@@ -1,0 +1,68 @@
+<!--dashboard PAGE -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <title>Nook</title>
+  <link rel='icon' type='image/x-icon' href='/images/logos/nook-logo.jpg'>
+  <link rel='stylesheet' href='/css/style.css'>
+  <script type='module' src='/js/main.js'></script>
+
+</head>
+<body>
+
+  <header id='main-header'></header>
+
+  <main class='dashboard-grid'>
+    
+    <aside class='left-column'>
+      <div class='content-card'>
+        <h3>My Journal</h3>
+        <p>Prompting your daily entry setup context...</p>
+      </div>
+      <div class='content-card'>
+        <h3>Quick Notes</h3>
+        <p>Appreciation notes display box...</p>
+      </div>
+    </aside>
+
+    <section class='center-column'>
+      <div id='daily-quote-container'></div>
+
+      <section class='timer-card content-card'>
+        <h2>Session Discussion Timer</h2>
+        <div class='timer-display-wrapper'>
+          <span id='timer-countdown'>10:00</span>
+        </div>
+        <div class='timer-controls'>
+          <button id='start-timer-btn' class='btn-primary'>Set & Start Timer</button>
+          <button id='reset-timer-btn' class='btn-secondary'>Reset</button>
+        </div>
+      </section>
+
+      <div class='content-card'>
+        <h3>This Week's Agenda</h3>
+        <p>No active discussion topics created yet.</p>
+      </div>
+    </section>
+
+    <aside class='right-column'>
+      <div class='content-card'>
+        <h3>Couple Profile</h3>
+        <p>Current Lead: <strong>Chris</strong></p>
+        <p>Current Log Streak: <strong>5 Days</strong></p>
+      </div>
+      <div class='content-card'>
+        <h3>Priority Goals</h3>
+        <p>Individual and group tracking cards mount here...</p>
+      </div>
+    </aside>
+
+  </main>
+
+  <footer id='main-footer'></footer>
+
+</body>
+</html>
