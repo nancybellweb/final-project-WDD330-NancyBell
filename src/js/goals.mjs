@@ -8,27 +8,25 @@ import {
     query, 
     where, 
     orderBy 
-    /* eslint-disable import/no-unresolved */
+    
+/* eslint-disable import/no-unresolved */
 } from 'https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js';
-import { qs } from './utils.mjs';
 
 const db = getFirestore();
 const goalsCollectionRef = collection(db, 'goals');
 
+
+//PUBLIC / SHARED GOALS LOGIC
+
 /**
- * Save a new structured goal to Firestore
- * @param {string} userId - The current user's ID
- * @param {string} title - What the goal is
- * @param {string} category - e.g., "Financial", "Relationship", "Health"
- * @param {string} privacy - "public" or "private"
- * @param {string} targetDate - Completion target date
+ * Save a shared goal that both partners can see
  */
-export async function saveGoal(userId, title, category, privacy, targetDate) {
+export async function savePublicGoal(userId, title, category, targetDate) {
     const goalData = {
         userId: userId,
         title: title,
         category: category,
-        privacy: privacy, // "public" or "private"
+        privacy: 'public', // Hardcoded for safety
         targetDate: targetDate,
         isCompleted: false,
         createdAt: new Date().toISOString()
@@ -36,38 +34,84 @@ export async function saveGoal(userId, title, category, privacy, targetDate) {
 
     try {
         const docRef = await addDoc(goalsCollectionRef, goalData);
-        return docRef.id; // Returns the generated Firestore Document ID
+        return docRef.id;
     } catch (error) {
         /* eslint-disable-next-line no-console */
-        console.error('Error adding goal to Firestore: ', error);
+        console.error('Error saving public goal:', error);
         throw error;
     }
 }
 
 /**
- * @param {string} userId - The current logged-in user
- * @param {string} privacyType - "public" or "private"
+ * Fetch all shared goals for the relationship
  */
-export async function getGoalsByPrivacy(userId, privacyType) {
+export async function getPublicGoals(userId) {
     try {
         const q = query(
             goalsCollectionRef,
-            where('userId', '==', userId),
-            where('privacy', '==', privacyType),
+            where('privacy', '==', 'public'),
             orderBy('createdAt', 'desc')
         );
 
         const querySnapshot = await getDocs(q);
         const goals = [];
-        
         querySnapshot.forEach((doc) => {
             goals.push({ id: doc.id, ...doc.data() });
         });
-
         return goals;
     } catch (error) {
         /* eslint-disable-next-line no-console */
-        console.error(`Error fetching ${privacyType} goals: `, error);
+        console.error('Error fetching public goals:', error);
+        return [];
+    }
+}
+
+// PRIVATE / PERSONAL GOALS LOGIC
+/**
+ * Save a personal goal exclusive to the logged-in user
+ */
+export async function savePrivateGoal(userId, title, category, targetDate) {
+    const goalData = {
+        userId: userId,
+        title: title,
+        category: category,
+        privacy: 'private', // Hardcoded for safety
+        targetDate: targetDate,
+        isCompleted: false,
+        createdAt: new Date().toISOString()
+    };
+
+    try {
+        const docRef = await addDoc(goalsCollectionRef, goalData);
+        return docRef.id;
+    } catch (error) {
+        /* eslint-disable-next-line no-console */
+        console.error('Error saving private goal:', error);
+        throw error;
+    }
+}
+
+/**
+ * Fetch personal goals only belonging to the current user
+ */
+export async function getPrivateGoals(userId) {
+    try {
+        const q = query(
+            goalsCollectionRef,
+            where('userId', '==', userId),
+            where('privacy', '==', 'private'),
+            orderBy('createdAt', 'desc')
+        );
+
+        const querySnapshot = await getDocs(q);
+        const goals = [];
+        querySnapshot.forEach((doc) => {
+            goals.push({ id: doc.id, ...doc.data() });
+        });
+        return goals;
+    } catch (error) {
+        /* eslint-disable-next-line no-console */
+        console.error('Error fetching private goals:', error);
         return [];
     }
 }
