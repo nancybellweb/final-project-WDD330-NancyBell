@@ -2,6 +2,7 @@
 /* eslint-disable import/no-unresolved */
 import headerTemplate from '../partials/header.html?raw';
 import footerTemplate from '../partials/footer.html?raw';
+import { checkAuthState, logoutUser } from './auth.mjs';
 /* eslint-disable import/no-unresolved */
 export function qs(selector, parent = document) {
     return parent.querySelector(selector);
@@ -23,7 +24,28 @@ export function loadHeaderFooter() {
 
         if (headerElement) headerElement.innerHTML = headerTemplate;
         if (footerElement) footerElement.innerHTML = footerTemplate;
+
+        checkAuthState((user) => {
+            const authLink = document.querySelector('#login-auth');
+            if (!authLink) return;
+
+            if (user) {
+                // User is logged in -> Show dynamic logout action
+                authLink.innerHTML = `🚪`; 
+                authLink.title = `Logout (${user.email})`;
+                authLink.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    logoutUser();
+                });
+            } else {
+                // Anonymous guest -> Reset back to regular silhouette icon link
+                authLink.innerHTML = `👤`;
+                authLink.href = '/login/index.html';
+                authLink.title = 'Login to your Nook account';
+            }
+        });
+
     } catch (error) {
-        //silent failure
+        // Safe bypass
     }
 }
