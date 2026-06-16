@@ -21,7 +21,7 @@ async function loadTemplate(path) {
 
 export async function loadHeaderFooter() {
     try {
-        //load templates and insert into page
+        //load template
         const headerTemplate = await loadTemplate('./partials/header.html');
         const footerTemplate = await loadTemplate('./partials/footer.html');
 
