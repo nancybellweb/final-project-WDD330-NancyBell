@@ -162,7 +162,6 @@ body {
   font-size: 0.9rem;
 }
 
-/* Optional: Subtle design for copyright vs links in the footer */
 .footer-container p {
   margin: 0;
   font-weight: 400;
@@ -177,40 +176,6 @@ body {
 .footer-container a:hover {
   text-decoration: underline;
 }
-/*desktop view*/
-@media (min-width: 768px) {
-  /* Toggle Navigation Bars */
-  .hamburger-menu-btn, .nav-mobile {
-    display: none !important;
-  }
-
-  .nav-desktop {
-    display: flex;
-    gap: 2rem;
-  }
-
-  .nav-desktop a {
-    text-decoration: none;
-    color: var(--text-main);
-    font-weight: 500;
-    transition: color 0.2s ease;
-  }
-
-  .nav-desktop a:hover {
-    color: var(--primary-accent);
-  }
-
-  /* Structural 3-Column Layout Activation */
-  .dashboard-grid {
-    grid-template-columns: 280px 1fr 280px; /* 3 distinct columns */
-    padding: 2rem 1rem;
-  }
-
-  /* Render all side containers cleanly in place */
-  .left-column, .right-column {
-    display: block;
-  }
-}
 
 /* Animation*/
 @keyframes fadeIn {
@@ -223,9 +188,7 @@ body {
   font-weight: 700;
 }
 
-/* ==========================================================
-   ✨ LANDING PAGE LAYOUT SYSTEM
-   ========================================================== */
+/* Landing Page */
 
 /* --- Layout Container & Course Banner --- */
 .course-banner {
@@ -288,7 +251,7 @@ body {
   opacity: 0.95;
 }
 
-/* --- Start Now Primary Styling Button --- */
+
 .start-now-btn {
   display: inline-block;
   background-color: var(--surface-white);
@@ -348,7 +311,7 @@ body {
   opacity: 0.9;
 }
 
-/* --- Clean Profile/Logout Header Icon Styling --- */
+
 #login-auth {
   font-size: 1.4rem;
   text-decoration: none;
@@ -361,27 +324,79 @@ body {
   color: var(--primary-accent);
 }
 
-/* ==========================================================
-   💻 RESPONSIVE DESKTOP ADJUSTMENTS (min-width: 768px)
-   ========================================================== */
+/* Media Queries */
 @media (min-width: 768px) {
-  /* 🌟 Force Hero Image column to sit cleanly on the left side */
   .hero-split-grid {
     grid-template-columns: 1.16fr 0.84fr;
     padding: 3rem;
   }
   
   .hero-image-column {
-    order: 1; /* First visually */
+    order: 1; 
   }
   
   .hero-text-column {
-    order: 2; /* Second visually */
+    order: 2; 
     padding-left: 1rem;
   }
 
-  /* 🌟 Expand features horizontally into 3 columns */
   .features-row-grid {
     grid-template-columns: repeat(3, 1fr);
   }
+    #login-auth {
+    margin-left: 2rem; 
+    margin-right: 0;
+  }
+    /* Toggle Navigation Bars */
+  .hamburger-menu-btn, .nav-mobile {
+    display: none !important;
+  }
+
+  .nav-desktop {
+    display: flex;
+    gap: 2rem;
+  }
+
+  .nav-desktop a {
+    text-decoration: none;
+    color: var(--text-main);
+    font-weight: 500;
+    transition: color 0.2s ease;
+  }
+
+  .nav-desktop a:hover {
+    color: var(--primary-accent);
+  }
+
+  /* Structural 3-Column Layout Activation */
+  .dashboard-grid {
+    grid-template-columns: 280px 1fr 280px; /* 3 distinct columns */
+    padding: 2rem 1rem;
+  }
+
+  /* Render all side containers cleanly in place */
+  .left-column, .right-column {
+    display: block;
+  }
+}
+
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1rem;
+}
+
+#login-auth {
+  margin-left: auto; 
+  margin-right: 1.25rem; 
+  text-decoration: none;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1rem;
 }
