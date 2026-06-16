@@ -1,6 +1,7 @@
 // writing to Firestore database, so we can have real user accounts and persistent data storage for goals and progress tracking.
 
-// src/js/goals.mjs
+import { db } from './firebase.js';
+
 import { 
     getFirestore, 
     collection, 
@@ -15,7 +16,6 @@ import {
     deleteDoc
 } from 'https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js';
 
-const db = getFirestore();
 const goalsCollectionRef = collection(db, 'goals');
 
 // (MODULAR SYNTAX)
