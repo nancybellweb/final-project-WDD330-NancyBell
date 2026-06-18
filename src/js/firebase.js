@@ -1,12 +1,9 @@
-
 /* eslint-disable import/no-unresolved */
 
-import { initializeApp } from 'firebase/app';
-import { getAnalytics } from 'firebase/analytics';
-import { getFirestore } from 'https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js';
+import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js';
 import { getAuth } from 'https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js';
+import { getFirestore } from 'https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js';
 
-// Importante!! Replace these placeholder strings with  actual Firebase project web app credentials!
 const firebaseConfig = {
     apiKey: 'AIzaSyATDGKfmDYOjpX_F0oupYhFsavcX7hxz4Y',
     authDomain: 'nook-app-117aa.firebaseapp.com',
@@ -17,8 +14,9 @@ const firebaseConfig = {
     measurementId: 'G-R5XF04T9N3'
 };
 
-// Initialize Firebase services
+//Initialize Core Application Instance
 const app = initializeApp(firebaseConfig);
-export const analytics = getAnalytics(app);
-export const db = getFirestore(app);
+
+// Initialize Export Services Linked to that App
 export const auth = getAuth(app);
+export const db = getFirestore(app); 
