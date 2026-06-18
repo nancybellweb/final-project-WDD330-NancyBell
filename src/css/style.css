@@ -467,3 +467,93 @@ body {
 .goal-card.state-in-progress {
   border-left-color: var(--secondary-accent); /* Honey Amber Gold */
 }
+
+/* Agenda Popup Modal Styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(3px);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content {
+  background-color: #ffffff;
+  padding: 2rem;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+  animation: modalSlideIn 0.3s ease-out;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #e0e0e0;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.modal-header h2 {
+  margin: 0;
+  color: #c05c46;
+  font-size: 1.4rem;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: #888;
+  transition: color 0.2s;
+}
+.close-btn:hover { color: #333; }
+
+.form-group {
+  margin-bottom: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.form-group label {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #444;
+}
+
+.form-group input, .form-group textarea {
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-family: inherit;
+}
+
+.submit-modal-btn {
+  background-color: #c05c46;
+  color: white;
+  border: none;
+  padding: 0.85rem 1.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+  width: 100%;
+  transition: background-color 0.2s, transform 0.1s;
+}
+.submit-modal-btn:hover { background-color: #a44834; }
+.submit-modal-btn:active { transform: scale(0.98); }
+
+@keyframes modalSlideIn {
+  from { transform: translateY(-30px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
