@@ -1,3 +1,8 @@
-import { loadHeaderFooter } from './utils.mjs';
+// src/js/landing.js
+import { loadHeaderFooter, initNavigationMenu } from './utils.mjs';
 
-loadHeaderFooter();
+document.addEventListener('DOMContentLoaded', async () => {
+    await loadHeaderFooter();
+    
+    initNavigationMenu();
+});

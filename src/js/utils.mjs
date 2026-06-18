@@ -57,3 +57,15 @@ export function loadHeaderFooter() {
         // Safe bypass
     }
 }
+
+// Hamburger Menu Toggle Logic
+export function initNavigationMenu() {
+    const hamburgerBtn = document.querySelector('.hamburger-menu-btn');
+    const mobileNav = document.querySelector('.nav-mobile');
+
+    if (hamburgerBtn && mobileNav) {
+        hamburgerBtn.addEventListener('click', () => {
+            mobileNav.classList.toggle('hidden');
+        });
+    }
+}

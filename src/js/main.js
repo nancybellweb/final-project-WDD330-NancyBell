@@ -1,8 +1,10 @@
-
-import { loadHeaderFooter } from './utils.mjs';
+import { loadHeaderFooter, initNavigationMenu } from './utils.mjs';
 import { initDailyQuote } from './quotes.mjs';
 import { requireAuth } from './auth.mjs';
 import { initAgendaModal } from './agenda.mjs';
+loadHeaderFooter();
+initNavigationMenu();
+initAgendaModal();
 
 requireAuth();
 
@@ -54,6 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Session Discussion Timer Logic
 document.addEventListener('DOMContentLoaded', () => {
+
     let timerInterval = null;
     let totalSeconds = 600; // 10 minutes in seconds
 
