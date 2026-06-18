@@ -1,24 +1,51 @@
 <!--Journal PAGE -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nook - Journal</title>
-    <link rel="stylesheet" href="/css/style.css">
-    <script type="module" src="/js/login.js"></script>
-</head>
-<body>
-    <header id="main-header"></header>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Nook - Coupled Journaling</title>
+    <link rel='icon' type='image/x-icon' href='/images/logos/nook-logo.jpg'>
+    <link rel='stylesheet' href='/css/style.css'>
+    <script type='module' src='/js/prompts.js'></script>
+    </head>
+    <body>
 
-    <main class="auth-container">
-        <section class="content-card auth-card">
-            <h2 id="auth-title">Journal</h2>
-            <p>This is where your journal entries will go! (Coming Soon)</p>
+    <header id='main-header'></header>
+
+    <main class='dashboard-grid'>
+        <aside class='left-column'>
+        <div class='content-card'>
+            <h3>Journal Metrics</h3>
+            <p>Total Entries: <strong>14</strong></p>
+            <p>Last Entry: <strong>Yesterday</strong></p>
+        </div>
+        </aside>
+
+        <section class='center-column'>
+        <div class='content-card'>
+            <h2>Coupled Journal Reflections</h2>
+            <p>Take turns typing out your thoughts, highlights, and emotional appreciations below.</p>
+            
+            <form class='journal-entry-form'>
+            <div class='form-group'>
+                <label>Today's Shared Highlight:</label>
+                <textarea rows='4' placeholder='What brought you closer today?...'></textarea>
+            </div>
+            <button type='button' class='submit-modal-btn'>Save Entry</button>
+            </form>
+        </div>
         </section>
+
+        <aside class='right-column'>
+        <div class='content-card'>
+            <h3>Daily Prompt Idea</h3>
+            <p class='goal-description'>What is one small gesture your partner did this week that made you feel supported or safe?</p>
+        </div>
+        </aside>
     </main>
 
-    <footer id="main-footer"></footer>
+    <footer id='main-footer'></footer>
+
 </body>
 </html>

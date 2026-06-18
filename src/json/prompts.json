@@ -1,0 +1,57 @@
+[
+    {
+        "id": "p1",
+        "question": "What is one small gesture your partner did this week that made you feel supported or safe?",
+        "category": "Appreciation",
+        "difficulty": "Easy",
+        "estimatedMinutes": 5,
+        "targetUser": "Both",
+        "requiresAction": false,
+        "season": "All",
+        "isFavorite": false
+    },
+    {
+        "id": "p2",
+        "question": "What is a favorite memory of us from this past month, and what made it special?",
+        "category": "Reflection",
+        "difficulty": "Easy",
+        "estimatedMinutes": 10,
+        "targetUser": "Both",
+        "requiresAction": false,
+        "season": "All",
+        "isFavorite": true
+    },
+    {
+        "id": "p3",
+        "question": "What is something you are currently looking forward to experiencing together?",
+        "category": "Future Planning",
+        "difficulty": "Medium",
+        "estimatedMinutes": 8,
+        "targetUser": "Both",
+        "requiresAction": true,
+        "season": "All",
+        "isFavorite": false
+    },
+    {
+        "id": "p4",
+        "question": "How can I best show you love and appreciation over the next few days?",
+        "category": "Support",
+        "difficulty": "Hard",
+        "estimatedMinutes": 15,
+        "targetUser": "Partner",
+        "requiresAction": true,
+        "season": "All",
+        "isFavorite": true
+    },
+    {
+        "id": "p5",
+        "question": "What is a shared goal or dream that you feel extra motivated to work on right now?",
+        "category": "Goals",
+        "difficulty": "Medium",
+        "estimatedMinutes": 10,
+        "targetUser": "Both",
+        "requiresAction": true,
+        "season": "All",
+        "isFavorite": false
+    }
+]
