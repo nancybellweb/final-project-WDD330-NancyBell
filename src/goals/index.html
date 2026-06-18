@@ -1,17 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nook - Goals</title>
-    <link rel="stylesheet" href="/css/style.css">
-</head>
-<body>
-    <header id="main-header"></header>
-    <main class="landing-container">
-        <h1>My Goals</h1>
-        <div class="goals-grid"></div>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Nook - Goals Tracker</title>
+    <link rel='icon' type='image/x-icon' href='/images/logos/nook-logo.jpg'>
+    <link rel='stylesheet' href='/css/style.css'>
+    <script type='module' src='/js/landing.js'></script>
+    </head>
+    <body>
+
+    <header id='main-header'></header>
+
+    <main class='dashboard-grid'>
+        <aside class='left-column'>
+        <div class='content-card'>
+            <h3>Goal Summary</h3>
+            <p>Active Goals: <strong>3</strong></p>
+            <p>Completed This Month: <strong>1</strong></p>
+        </div>
+        </aside>
+
+        <section class='center-column'>
+        <div class='content-card'>
+            <h2>Our Shared Vision Board</h2>
+            <p>Setting intentional checkpoints together.</p>
+        </div>
+
+        <div class='content-card goal-card state-in-progress'>
+            <div class='goal-card-header'>
+            <h3>Plan Summer Getaway </h3>
+            <span class='goal-type-badge'>Couple</span>
+            </div>
+            <p class='goal-description'>Book a weekend trip together near the beach to disconnect and refresh.</p>
+            <div class='goal-card-actions'>
+            <select class='status-dropdown' aria-label='Change goal status'>
+                <option value='in-progress' selected>In Progress</option>
+                <option value='done'>Completed</option>
+                <option value='failed'>On Hold</option>
+            </select>
+            </div>
+        </div>
+
+        <div class='content-card goal-card state-done'>
+            <div class='goal-card-header'>
+            <h3>Weekly Date Night Sync </h3>
+            <span class='goal-type-badge'>Routine</span>
+            </div>
+            <p class='goal-description'>Establish a solid recurring date night every Friday evening.</p>
+            <div class='goal-card-actions'>
+            <select class='status-dropdown' aria-label='Change goal status'>
+                <option value='in-progress'>In Progress</option>
+                <option value='done' selected>Completed</option>
+                <option value='failed'>On Hold</option>
+            </select>
+            </div>
+        </div>
+        </section>
+
+        <aside class='right-column'>
+        <div class='content-card'>
+            <h3>Goal Tips</h3>
+            <p>Keep your goals attainable and clear. Review them during your weekly 10-minute session timers.</p>
+        </div>
+        </aside>
     </main>
-    <footer id="main-footer"></footer>
+
+    <footer id='main-footer'></footer>
+
 </body>
 </html>
