@@ -16,6 +16,7 @@ export default defineConfig({
         goals: resolve(__dirname, 'src/goals/index.html'),
         notes: resolve(__dirname, 'src/notes/index.html'),
         journal: resolve(__dirname, 'src/journal/index.html'),
+        agenda: resolve(__dirname, 'src/agenda/index.html'),
       },
     },
   },
