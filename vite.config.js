@@ -16,6 +16,7 @@ export default defineConfig({
         dashboard: resolve(__dirname, 'src/dashboard/index.html'),
         goals: resolve(__dirname, 'src/goals/index.html'),
         notes: resolve(__dirname, 'src/notes/index.html'),
+        journal: resolve(__dirname, 'src/journal/index.html'),
       },
     },
   },
