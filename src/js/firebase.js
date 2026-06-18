@@ -1,7 +1,8 @@
 
 /* eslint-disable import/no-unresolved */
 
-import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js';
+import { initializeApp } from 'firebase/app';
+import { getAnalytics } from 'firebase/analytics';
 import { getFirestore } from 'https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js';
 import { getAuth } from 'https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js';
 
@@ -18,5 +19,6 @@ const firebaseConfig = {
 
 // Initialize Firebase services
 const app = initializeApp(firebaseConfig);
+export const analytics = getAnalytics(app);
 export const db = getFirestore(app);
 export const auth = getAuth(app);
